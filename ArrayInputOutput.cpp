@@ -1,38 +1,41 @@
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <iostream>
-
 using namespace std;
-
-
-
 class Array{
     public:
-        int x[10];
-        Array(){
-        
-    }
-    void Read_Element();
-    void Display_Element();
-    
+        int x[100];
+        int maxsize;
+        Array();
+        void Read_Element();
+        void Display_Element();
+        void Display_Element_Backward();
 };
+Array::Array(){
+    cout<<"Enter the size of the array : ";
+    cin>>maxsize;
+}
+
 void Array::Read_Element(){
-    cout<<"Enter the element of the array";
-    for(int i = 0; i < 5; i++){
-        cin>>x[i];
+    if(maxsize > 100){
+        cout<<"Array maxed out!";
+    }
+    else{
+        cout<<"Enter "<<maxsize<<" number into the array : ";
+        for(int i = 0; i < maxsize; i++){
+            cin>>x[i];
+        }
     }
 }
 
 void Array::Display_Element(){
-    for(int i = 0; i < 5; i++){
-        cout<<"the element of the array";
+    for(int i = 0; i < maxsize; i++){
+        cout<<"The elements of the array are : ";
         cout<<x[i]<<endl;
+    }
+}
+
+void Array::Display_Element_Backward(){
+    for(int i = maxsize - 1; i >= 0; i--){
+        cout<<x[i];
     }
 }
 
