@@ -13,13 +13,10 @@ class Array{
     
 int Array::search(int k){
     for(int i = 0; i < maxsize; i++){
-        if(x[i] == k){
+        if(x[i] == k)
             return i;
-        }
-        else{
-            return 0;
-        }
     }
+    return -1;
 }
 
 Array::Array(){
@@ -32,7 +29,7 @@ void Array::Read_Element(){
         cout<<"Array maxed out!";
     }
     else{
-        cout<<"Enter"<<maxsize<<" number into the array";
+        cout<<"Enter "<<maxsize<<" number into the array : ";
         for(int i = 0; i < maxsize; i++){
             cin>>x[i];
         }
@@ -41,7 +38,7 @@ void Array::Read_Element(){
 
 void Array::Display_Element(){
     for(int i = 0; i < maxsize; i++){
-        cout<<"the element of the array";
+        cout<<"the elements of the array : ";
         cout<<x[i]<<endl;
     }
 }
@@ -54,8 +51,13 @@ void Array::Display_Element_Backward(){
 
 int main()
 {
+    int key;
     Array arr1;
     arr1.Read_Element();
     arr1.Display_Element();
+    cout<<"Enter the element to be searched : ";
+    cin>>key;
+    int r = arr1.search(key);
+    cout<<"The element found at index "<<r<<" ."<<endl;
     return 0;
 }
